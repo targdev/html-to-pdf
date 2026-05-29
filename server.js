@@ -33,7 +33,8 @@ async function getBrowser() {
       "--disable-dev-shm-usage",
       "--disable-gpu",
     ],
-    // No Docker oficial do Puppeteer o Chrome já vem instalado neste caminho.
+    // Se PUPPETEER_EXECUTABLE_PATH estiver definida, usa esse binário; senão
+    // (caso padrão no Docker) o Puppeteer localiza o Chrome pelo cache.
     executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
   });
 
